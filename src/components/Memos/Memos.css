@@ -1,0 +1,108 @@
+#memos-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    margin: 2em;
+}
+
+.memo-title-container {
+    margin: 1em;
+    /*background-color: #6423a9;*/
+}
+
+.memos-container-children {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 300px;
+    justify-content: space-between;
+}
+
+
+/** TERMS **/
+
+#ul-terms-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+#title-term {
+    margin: 2em;
+}
+
+.btn-terms-title{
+    margin: 0;
+    padding: 10px 10px;
+}
+
+.btn-terms {
+    display: flex;
+    background-color: #404743;
+    color: black;
+}
+
+.li-terms-btns {
+    margin: 2em;
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+    background-color: #6423a9;
+    border-radius: 5px;
+    color: antiquewhite;
+    gap: 1em;
+    align-items: end;
+}
+
+#btn-terms-add {
+
+    height: 3em;
+    width: 3em;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+}
+
+.btn-terms-actions {
+
+    flex-direction: row;
+    display: flex;
+    height: 30px;
+    gap: 1em;
+}
+
+.activated-term,
+.btn-terms-title:hover {
+    background-color: #4dd48a;
+    color: antiquewhite;
+}
+
+.btn-terms-title:hover{
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.icons-terms {
+    width: 16px;
+    height: 16px;
+    color: antiquewhite;
+}
+
+.form-terms {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2em;
+}
+
+/** Columns **/
+.memo-title-container{
+    display:flex;
+    flex-direction: row;
+    gap: 1em;
+}

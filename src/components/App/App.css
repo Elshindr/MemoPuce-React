@@ -1,0 +1,55 @@
+/** General **/
+.App {
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.color-main{
+  color: #a8e618;
+}
+
+.color-main-btn{
+  background-color: #a8e618;
+  color:#fff;
+}
+
+.color-main-btn:hover{
+  background-color: #50b74f;
+  color:#fff;
+}
+
+
+ul {
+  /* Enlèver les puces + padding */
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.form-control:focus {
+  color: var(--bs-body-color);
+  background-color: var(--bs-body-bg);
+  border-color: #1fc031;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(18, 115, 9, 0.24);
+}
+
+
+
+
+/** Navbar **/
+#logo {
+  margin: 0em 2em;
+}
+
+.nav-link:hover, .nav-link:focus{
+  color:#a8e618;
+}
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+  color: #a8e618;
+}
+
+#logout-container{
+  margin-right: 5em;
+}
+
+
