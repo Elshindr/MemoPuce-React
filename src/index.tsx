@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { UserProvider } from './Contexts/UserContext';
+
 import {
     createRoutesFromElements,
     createBrowserRouter,
@@ -15,7 +15,8 @@ import Memos from './components/Memos/Memos';
 
 //import reportWebVitals from './reportWebVitals';
 import LstTerms from './components/LstTerms/LstTerms';
-
+import { TermProvider } from './Contexts/TermContext';
+import { UserProvider } from './Contexts/UserContext';
 
 
 
@@ -29,7 +30,7 @@ const router = createBrowserRouter(
             <Route path="/" element={<App />}>
                 <Route path="" element={<Home />} />
                 {<Route path="Memos" element={<Memos />}/*loader={articlesLoader}*/ />}
-                {<Route path="Terms" element={<LstTerms />} />}
+                {<Route path="lstTerms" element={<LstTerms />} />}
             </Route>
             {/*<Route path="/add/article" action={addArticle} />*/}
         </>
@@ -39,7 +40,9 @@ const router = createBrowserRouter(
 root.render(
     <React.StrictMode>
         <UserProvider>
-            <RouterProvider router={router} />
+            <TermProvider>
+                <RouterProvider router={router} />
+            </TermProvider>
         </UserProvider>
     </React.StrictMode>
 );

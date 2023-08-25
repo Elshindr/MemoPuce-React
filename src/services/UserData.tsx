@@ -22,15 +22,14 @@ export default class UserData {
 
         return fetch(this.url + 'users?username=' + login + '&pwd=' + pwd)
             .then(res => {
-                console.log(`res`,res)
                 return res.json();
             })
             .then(user => {
-                console.log(`loadOneUser : user`, user);
                 return user;
             })
             .catch(error => {
                 console.log(`Erreur dans loadOneUser`, error);
+                throw new Error("Erreur dans loadOneUser");
             });
     }
 

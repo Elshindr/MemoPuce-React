@@ -9,11 +9,9 @@ export default class ColumnData {
 
         return fetch(this.url + 'columns')
             .then(res => {
-                console.log(`res`, res)
                 return res.json();
             })
             .then(columns => {
-                console.log(`loadColumns : terms`, columns);
                 return columns;
             })
             .catch(error => {

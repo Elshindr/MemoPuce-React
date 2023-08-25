@@ -9,11 +9,9 @@ export default class CardData {
 
         return fetch(this.url + 'cards')
             .then(res => {
-                console.log(`res`, res)
                 return res.json();
             })
             .then(cards => {
-                console.log(`loadCards : user`, cards);
                 return cards;
             })
             .catch(error => {

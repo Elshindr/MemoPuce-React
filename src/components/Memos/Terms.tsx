@@ -4,6 +4,9 @@ import TermData from "../../services/TermData";
 import { PencilFill } from 'react-bootstrap-icons';
 import { TrashFill } from 'react-bootstrap-icons';
 import { PlusCircleFill } from 'react-bootstrap-icons';
+import { useTerm } from "../../Contexts/TermContext";
+import { useNavigate } from "react-router-dom";
+import { useUser } from "../../Contexts/UserContext";
 /**
  * Terms
  * La thématique d'une question
@@ -16,14 +19,17 @@ const Terms = (props: any) => {
     const [add_form, setAddForm] = useState<boolean>(false);
     const [edit_form, setEditForm] = useState<boolean>(false);
     const [edited_term, setEditedTerm] = useState<TermInterface | null>(null);
-    const [curTerm, setCurTerm] = useState<TermInterface | null>(null);
+    
+    // TERM Current
+    const { curTerm } = useTerm();
+    const { updateCurTerm } = useTerm();
 
     const inputAddTerm = useRef<HTMLInputElement>(null);
     const inputEditTerm = useRef<HTMLInputElement>(null);
 
 
     useEffect(() => {
-    }, [add_form, edit_form]);
+    }, [add_form, edit_form, curTerm]);
 
 
     // ADD Term
@@ -130,7 +136,7 @@ const Terms = (props: any) => {
 
     // AFFICHAGE Current Term
     function handleClickChangeCurrTerm(term: TermInterface) {
-        setCurTerm(term);
+        updateCurTerm(term);
         props.onChangeCurTerm(term);
     }
 
@@ -151,7 +157,7 @@ const Terms = (props: any) => {
         <div id="terms-container">
 
             <ul id="ul-terms-container">
-                <h3 id="title-term" >{curTerm !== null ? curTerm.name : "undefined error"}</h3>
+                <h3 id="title-term" >{curTerm !== null ? curTerm.name : ""}</h3>
                 <li>
                     <button id='btn-terms-add' className="btn btn-terms color-main-btn" type="submit" onClick={() => handleClickShowAddFormTerm()}><PlusCircleFill className="icons-terms" /></button>
                 </li>

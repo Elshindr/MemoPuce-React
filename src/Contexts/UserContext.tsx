@@ -40,6 +40,7 @@ export function useUser(): UserContextType {
     return context;
 }
 
+/*
 function useEffect(arg0: () => void, arg1: (UserInterface | null)[]) {
     throw new Error('Function not implemented.');
-}
+}*/

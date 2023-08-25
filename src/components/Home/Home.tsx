@@ -17,7 +17,7 @@ const Home = () => {
     // Redirection si l'utilisateur est déjà connecté
     useEffect(() => {
         if (user !== null) {
-            navigate("/Memos");
+            navigate("/lstTerms");
         }
     }, [user, navigate]);
 
