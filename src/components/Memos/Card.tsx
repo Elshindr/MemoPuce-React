@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { GearFill, PencilFill, TrashFill } from "react-bootstrap-icons";
+import { CaretLeftFill, CaretRightFill, GearFill, PencilFill, TrashFill } from "react-bootstrap-icons";
 import CardData from "../../services/CardData";
 import CardInterface from "../../interfaces/CardInterface";
 import ModalChild from "../Modals/ModalChild";
@@ -82,12 +82,42 @@ const Card = (props: any) => {
 		} else {
 			alert("Erreur modification card: non trouve ou null");
 			console.log("Erreur modification carte: non trouve ou null", oldCard);
-			console.log("inputQstEdit", inputQstEdit);
-			console.log("inputAswEdit", inputAswEdit);
 		} //TODO: gestion erreur
 
 	}
 
+	async function handleClickArrow(newColId: number, oldCard: CardInterface) {
+		const updCard: CardInterface = oldCard;
+		updCard.question = oldCard.question;
+		updCard.answer = oldCard.answer
+		updCard.column = newColId;
+
+		const res = await CardData.updateCard(updCard);
+		if (res === true) {
+			props.onchangeTerm();
+
+		} else {
+			alert("Erreur à la modification de colonne de la carte");
+			console.log(`Erreur à la modification de colonne de la carte`, res)
+		} //TODO: gestion erreur
+
+	}
+
+	// AFFICHAGE CSS
+	const disableArrowClass = (card: CardInterface) => {
+
+		const arrArrows: string[] = ["", ""];
+
+		if (card.column === 1) {
+			arrArrows[0] = "disable disableArrowClass";
+		}
+
+		if (card.column === 4) {
+			arrArrows[1] = "disable disableArrowClass";
+		}
+
+		return arrArrows;
+	}
 
 
 
@@ -116,7 +146,25 @@ const Card = (props: any) => {
 			<div className="card">
 
 				<div className="card-body">
+					<div className="card-arrows">
+						<button
+							className={disableArrowClass(props.card)[0] + " btn btn-arrows"}
+							onClick={props.col.id === 1 ? undefined : () => handleClickArrow(props.col.id - 1, props.card)}
+						>
+							<CaretLeftFill />
+						</button>
+
+
+
+						<button className={disableArrowClass(props.card)[1] + " btn btn-arrows"}
+							onClick={props.col.id === 4 ? undefined : () => handleClickArrow(props.col.id + 1, props.card)}
+						>
+							<CaretRightFill />
+						</button>
+					</div>
+
 					<h4 className="card-title" onClick={toggleAnswer}>{props.card.question + " ?"}</h4>
+
 					{isTextVisible ? (
 						<div>
 							<h5 className="card-text">{props.card.answer + "."}</h5>

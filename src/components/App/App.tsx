@@ -13,7 +13,7 @@ function App() {
     useEffect(() => {
     }, [user, navigate]);
 
-    const handleClickLogout = () =>{
+    const handleClickLogout = () => {
         user.setUser(null);
         navigate("/");
     }
@@ -57,15 +57,15 @@ function App() {
             <main>
                 <Outlet />
             </main>
-{/* <footer className="bg-dark text-center text-white">
+            <footer className="bg-dark text-center text-white">
 
                 <div id="footer-credits-container" className="text-center p-3">
-                <div><a className="link" href="https://github.com/Elshindr">Coded by: </a>Elshindr</div>
-                    <div> <a className="link"href="https://fr.freepik.com/vecteurs-libre/logo-pieuvre-degrade-colore_49695230.htm">Logo By: </a> Gbob (Freepik)</div>
+                    <div><a className="link" href="https://github.com/Elshindr">Coded by: </a>Elshindr</div>
+                    <div> <a className="link" href="https://fr.freepik.com/vecteurs-libre/logo-pieuvre-degrade-colore_49695230.htm">Logo By: </a> Gbob (Freepik)</div>
                 </div>
 
-            </footer>*/}
-            
+            </footer>
+
         </div>
 
     );

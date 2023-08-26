@@ -16,5 +16,7 @@
 }
 
 .modal-close-button{
-    margin-top:  4em;
+    background-color: #6423a9;
+    margin-top:  1em;
+    width: 20%;
 }
