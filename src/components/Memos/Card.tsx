@@ -38,7 +38,9 @@ const Card = (props: any) => {
 
 	// DELETE Card
 	async function handleClickRemoveCard(id: number) {
+
 		const res = await CardData.removeCard(id);
+
 		if (res === true) {
 			props.onchangeTerm();
 		} else {
@@ -49,19 +51,15 @@ const Card = (props: any) => {
 
 	// UPDATE Card
 	async function handleClickEditCard(event: React.FormEvent<HTMLFormElement>, idCol: number, oldCard: CardInterface) {
-		console.log(`handleClickEditCard`)
+
 		event.preventDefault();
 
-
 		if (inputQstEdit.current && inputAswEdit.current && oldCard != null) {
-
 
 			const updCard: CardInterface = oldCard;
 			updCard.question = inputQstEdit.current.value;
 			updCard.answer = inputAswEdit.current.value;
 			updCard.column = idCol;
-console.log(`col`, idCol)
-console.log(`card new`, updCard)
 
 			const res = await CardData.updateCard(updCard);
 			if (res === true) {
@@ -95,7 +93,7 @@ console.log(`card new`, updCard)
 
 	return (
 
-		<div>
+		<div className="card-container">
 			{modalShow && (
 				<ModalRoot isOpen={modalShow} onClose={() => handleClickShowEditModalCard(false)}>
 					<ModalChild
@@ -109,6 +107,8 @@ console.log(`card new`, updCard)
 						handleClickForm={(event: React.FormEvent<HTMLFormElement>) => { handleClickEditCard(event, props.col.id, props.card) }}
 						inputQst={inputQstEdit}
 						inputAsw={inputAswEdit}
+						removable={true}
+						handleRemoveCard={() => { handleClickRemoveCard(props.card.id) }}
 					></ModalChild>
 				</ModalRoot>
 			)}
@@ -117,21 +117,20 @@ console.log(`card new`, updCard)
 
 				<div className="card-body">
 
-					<h4 className="card-title" onClick={toggleAnswer}>{props.card.question}</h4>
+					<h4 className="card-title" onClick={toggleAnswer}>{props.card.question + "?"}</h4>
 					{isTextVisible ? (
 						<div>
-							<h5 className="card-text">{props.card.answer}</h5>
-							<button onClick={toggleActions}><GearFill className="color-main-btn"></GearFill></button>
+							<h5 className="card-text">{props.card.answer + "."}</h5>
+
 						</div>)
 						: (null)}
 				</div>
 
-				{isActionsVisible ? (
-					<div className="card-footer">
-						<button className="btn btn-terms" onClick={() => handleClickShowEditModalCard(true)} ><PencilFill className="icons-terms" /></button>
-						<button className="btn btn-terms" onClick={() => handleClickRemoveCard(props.card.id)} ><TrashFill className="icons-terms" /></button>
-					</div>)
-					: null}
+
+				<div className="card-footer">
+					<button className="btn color-main-btn card-btn" onClick={() => handleClickShowEditModalCard(true)}  ><GearFill className="cards-icons"></GearFill></button>
+				</div>
+
 
 			</div>
 

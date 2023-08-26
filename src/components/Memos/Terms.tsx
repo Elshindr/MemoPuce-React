@@ -157,7 +157,7 @@ const Terms = (props: any) => {
         <div id="terms-container">
 
             <ul id="ul-terms-container">
-                <h3 id="title-term" >{curTerm !== null ? curTerm.name : ""}</h3>
+               
                 <li>
                     <button id='btn-terms-add' className="btn btn-terms color-main-btn" type="submit" onClick={() => handleClickShowAddFormTerm()}><PlusCircleFill className="icons-terms" /></button>
                 </li>

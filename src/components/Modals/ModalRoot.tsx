@@ -10,7 +10,7 @@ const ModalRoot = ({ isOpen, onClose, children }: any) => {
   return (
 
     <div id="mamodal" className="modal  modal-overlay">
-      <button className="modal-close-button" onClick={onClose}>X</button>
+      <button className=" btn color-main-btn modal-close-button" onClick={onClose}>X</button>
       {children}
     </div>
 

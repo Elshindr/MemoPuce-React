@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { TrashFill } from "react-bootstrap-icons";
 
 const ModalChild = (props: any) => {
 
@@ -14,7 +15,7 @@ const ModalChild = (props: any) => {
 
             <div className="modal-body">
 
-                <form onSubmit={(event) => { props.handleClickForm(event); }}>
+                <form onSubmit={(event) => { props.handleClickForm(event,); }}>
 
                     <div className="form-group form-outline mb-4">
                         <input
@@ -40,8 +41,15 @@ const ModalChild = (props: any) => {
                         />
                     </div>
 
-                    <button type="submit" className="btn color-main-btn btn-block mb-4">{props.btnText}</button>
 
+                    <div className="modal-footer">
+                    <button type="submit" className="btn color-main-btn btn-block">{props.btnText}</button>
+                        {
+                            props.removable===true?
+                            (<button onClick={props.handleRemoveCard} className="btn color-main-btn btn-block" ><TrashFill className="icons-terms" /></button>):null
+                        }
+                    </div>
+                    
                 </form>
 
             </div>

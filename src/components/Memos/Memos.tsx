@@ -32,9 +32,9 @@ const Memos = () => {
 
     // Redirection si l'utilisateur est déconnecté
     useEffect(() => {
-        if (user.user === null) {
+     /*   if (user.user === null) {
             navigate("/");
-        } else {
+        } else {*/
 
             (async () => {
                 const lstCards = await CardData.loadCards();
@@ -47,7 +47,7 @@ const Memos = () => {
                 setColumns(lstColumns);
 
             })();
-        }
+       // }
 
 
     }, [user, curTerm, navigate]);
