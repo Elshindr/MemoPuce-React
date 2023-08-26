@@ -4,6 +4,7 @@ import CardInterface from "../../interfaces/CardInterface";
 import CardData from "../../services/CardData";
 import ModalChild from "../Modals/ModalChild";
 import ModalRoot from "../Modals/ModalRoot";
+import { PlusCircleFill } from "react-bootstrap-icons";
 
 const Column = (props: any) => {
 
@@ -68,7 +69,7 @@ const Column = (props: any) => {
 
 
             <div className="memo-title-container">
-                <button className="btn color-main-btn" type="button" onClick={() => handleClickShowAddModalCol(true)}>+</button>
+                <button className="btn color-main-btn btn-columns" type="button" onClick={() => handleClickShowAddModalCol(true)}><PlusCircleFill className="icons-terms cards-icons" /></button>
                 <h3>{props.col.label}</h3>
             </div>
 

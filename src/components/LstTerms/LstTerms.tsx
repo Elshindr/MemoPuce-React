@@ -8,7 +8,7 @@ import CardData from "../../services/CardData";
 import ColumnData from "../../services/ColumnData";
 import TermData from "../../services/TermData";
 import { useTerm } from "../../Contexts/TermContext";
-
+import './LstTerms.css';
 
 
 const LstTerms = () => {
@@ -58,7 +58,7 @@ const LstTerms = () => {
     return (
         <div key="table-terms" className="table-terms-container">
 
-            <table className="table table-hover">
+            <table className="table table-hover table-striped">
                 <thead className="table-dark">
                     <tr>
                         <th scope="col">Thème</th>
@@ -71,7 +71,7 @@ const LstTerms = () => {
                 <tbody>
                     {terms.map(term => (
                         <tr key={term.id} onClick={() => handleClickRowTerm(term)}>
-                            <td scope="col">{term.name}</td>
+                            <th scope="col">{term.name}</th>
                             {columns.map(col => (
                                 <td scope="col" key={col.id} >
                                     {cards.filter(card => card.tid === term.id && card.column === col.id).length}

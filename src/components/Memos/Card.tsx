@@ -116,12 +116,10 @@ const Card = (props: any) => {
 			<div className="card">
 
 				<div className="card-body">
-
-					<h4 className="card-title" onClick={toggleAnswer}>{props.card.question + "?"}</h4>
+					<h4 className="card-title" onClick={toggleAnswer}>{props.card.question + " ?"}</h4>
 					{isTextVisible ? (
 						<div>
 							<h5 className="card-text">{props.card.answer + "."}</h5>
-
 						</div>)
 						: (null)}
 				</div>

@@ -27,7 +27,8 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 1em;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 #title-term {
@@ -41,19 +42,20 @@
 
 .btn-terms {
     display: flex;
+}
+
+.btn-terms:hover {
     background-color: #404743;
-    color: black;
 }
 
 .li-terms-btns {
-    margin: 2em;
-    padding: 1em;
+
+    padding: 0.4em;
     display: flex;
     flex-direction: row;
     background-color: #6423a9;
     border-radius: 5px;
     color: antiquewhite;
-    gap: 1em;
     align-items: end;
 
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
@@ -61,28 +63,34 @@
 }
 
 #btn-terms-add {
-
+    background-color: #404743;
     height: 3em;
     width: 3em;
     display: flex;
     align-content: center;
     align-items: center;
-    justify-items: center;
+
     justify-content: center;
 }
 
-.btn-terms-actions {
+#btn-terms-add:hover{
+    background-color:  #50b74f;
+}
 
+
+.btn-terms-actions {
     flex-direction: row;
     display: flex;
     height: 30px;
-    gap: 1em;
 }
 
 .activated-term,
 .btn-terms-title:hover {
     background-color: #50b74f;
-    color: antiquewhite;
+
+    color: #fff;
+    transition: cubic-bezier(0.19, 1, 0.22, 1);
+    box-shadow: rgba(52, 246, 74, 0.36) 0px 0px 0px 1px;
     transition: cubic-bezier(0.19, 1, 0.22, 1);
 }
 
@@ -94,7 +102,7 @@
 .icons-terms {
     width: 16px;
     height: 16px;
-    color: antiquewhite;
+    color: #fff;
 }
 
 .form-terms {
@@ -109,6 +117,18 @@
     display: flex;
     flex-direction: row;
     gap: 1em;
+    height: 5em;
+    align-content: center;
+    align-items: baseline;
+}
+
+.btn-columns{
+    display: flex;
+    align-items: center;
+    height: 3em;
+    width: 3em;
+    padding: 0;
+    justify-content: center;
 }
 
 /** Cards **/

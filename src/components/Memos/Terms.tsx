@@ -19,7 +19,7 @@ const Terms = (props: any) => {
     const [add_form, setAddForm] = useState<boolean>(false);
     const [edit_form, setEditForm] = useState<boolean>(false);
     const [edited_term, setEditedTerm] = useState<TermInterface | null>(null);
-    
+
     // TERM Current
     const { curTerm } = useTerm();
     const { updateCurTerm } = useTerm();
@@ -108,7 +108,7 @@ const Terms = (props: any) => {
         setAddForm(change_show);
     }
 
-    
+
     // AFFICHAGE Form Edit
     function handleClickShowEditFormTerm(term: TermInterface) {
 
@@ -157,15 +157,15 @@ const Terms = (props: any) => {
         <div id="terms-container">
 
             <ul id="ul-terms-container">
-               
+
                 <li>
-                    <button id='btn-terms-add' className="btn btn-terms color-main-btn" type="submit" onClick={() => handleClickShowAddFormTerm()}><PlusCircleFill className="icons-terms" /></button>
+                    <button  className="btn " id='btn-terms-add' type="submit" onClick={() => handleClickShowAddFormTerm()}><PlusCircleFill className="icons-terms" /></button>
                 </li>
 
                 {props.terms.map((term: TermInterface) => (
 
                     <li className={activedTermClass(term) + " li-terms-btns"} key={term.id}>
-                        
+
                         <p className="btn-terms-title" onClick={() => handleClickChangeCurrTerm(term)}> {term.name} </p>
 
                         <div className="btn-terms-actions">
